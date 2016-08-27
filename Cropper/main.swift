@@ -24,6 +24,6 @@ brutalizer.brutalizeWithHoles(numberOfHoles: 10)
 guard let outputData = brutalizer.outputData else { exit(1) }
 
 let fileManager = NSFileManager.defaultManager()
-let a = ("~/Desktop/fuckedup.png" as NSString).stringByExpandingTildeInPath
+let a = ("~/Desktop/brutalized.png" as NSString).stringByExpandingTildeInPath
 
 fileManager.createFileAtPath(a, contents: outputData, attributes: nil)
