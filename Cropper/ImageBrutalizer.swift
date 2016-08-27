@@ -89,13 +89,23 @@ class ImageBrutalizer {
         image = tunneler?.outputImage ?? image
     }
     
+    func brutalizeWithPixelation() {
+        let pixler = CIFilter(name: "CIPixellate", withInputParameters: [
+            "inputImage": image,
+            "inputCenter": randomCenter,
+            "inputScale": randomNSNumber(10)
+            ])
+        
+        image = pixler?.outputImage ?? image
+    }
+    
     func brutalizeWithToruses(numberOfToruses numOfToruses: Int) {
         for _ in 0..<numOfToruses {
             let toruser = CIFilter(name: "CITorusLensDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
                 "inputRadius": randomNSNumber(100),
-                "inputWidth": randomNSNumber(100),
+                "inputWidth": randomNSNumber(50),
                 "inputRefraction": randomNSNumber(10)
                 ])
             
