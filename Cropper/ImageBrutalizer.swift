@@ -11,12 +11,13 @@ import CoreImage
 import AppKit
 
 class ImageBrutalizer {
-    let context = CIContext(options: nil)
-    let extent: CGRect
-    let height: Int
-    let width: Int
+    private let context = CIContext(options: nil)
+    private let extent: CGRect
+    private let height: Int
+    private let width: Int
     
-    var image: CIImage
+    private var image: CIImage
+    
     var outputImage: CGImage {
         return context.createCGImage(image, fromRect: extent)
     }
