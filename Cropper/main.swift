@@ -19,6 +19,7 @@ guard let brutalizer = ImageBrutalizer(image: ciImage) else { exit(1) }
 
 // brutalizer.brutalizeWithNoiseReduction()
 // brutalizer.brutalizeWithPixelation()
+// brutalizer.brutalizeWithBloom()
 brutalizer.brutalizeWithBumps(numberOfBumps: 20)
 brutalizer.brutalizeWithTwirls(numberOfTwirls: 20)
 brutalizer.brutalizeWithHoles(numberOfHoles: 20)

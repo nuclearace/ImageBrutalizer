@@ -45,6 +45,17 @@ class ImageBrutalizer {
         self.width = width
     }
     
+    func brutalizeWithBloom() {
+        let bloomer = CIFilter(name: "CIBloom", withInputParameters: [
+            "inputImage": image,
+            "inputRadius": randomNSNumber(200),
+            "inputIntensity": randomNSNumber(30)
+            ])
+        
+        image = bloomer?.outputImage ?? image
+        
+    }
+    
     func brutalizeWithBumps(numberOfBumps bumpNum: Int) {
         for _ in 0..<bumpNum {
             let bumper = CIFilter(name: "CIBumpDistortion", withInputParameters: [
@@ -93,7 +104,7 @@ class ImageBrutalizer {
         let pixler = CIFilter(name: "CIPixellate", withInputParameters: [
             "inputImage": image,
             "inputCenter": randomCenter,
-            "inputScale": randomNSNumber(10)
+            "inputScale": randomNSNumber(20)
             ])
         
         image = pixler?.outputImage ?? image
@@ -132,7 +143,7 @@ class ImageBrutalizer {
             let vortexer = CIFilter(name: "CIVortexDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(300),
+                "inputRadius": randomNSNumber(200),
                 "inputAngle": randomNSNumber(360)
                 ])
             
