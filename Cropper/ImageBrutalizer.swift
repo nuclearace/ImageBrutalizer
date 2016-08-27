@@ -84,8 +84,8 @@ class ImageBrutalizer {
             let toruser = CIFilter(name: "CITorusLensDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(200),
-                "inputWidth": randomNSNumber(200),
+                "inputRadius": randomNSNumber(100),
+                "inputWidth": randomNSNumber(100),
                 "inputRefraction": randomNSNumber(10)
                 ])
             

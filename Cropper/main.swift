@@ -17,11 +17,11 @@ guard let imageData = NSData(contentsOfFile: imagePath) else { exit(1) }
 guard let ciImage = CIImage(data: imageData) else { exit(1) }
 guard let brutalizer = ImageBrutalizer(image: ciImage) else { exit(1) }
 
-brutalizer.brutalizeWithBumps(numberOfBumps: 50)
-brutalizer.brutalizeWithTwirls(numberOfTwirls: 50)
-brutalizer.brutalizeWithHoles(numberOfHoles: 40)
+brutalizer.brutalizeWithBumps(numberOfBumps: 20)
+brutalizer.brutalizeWithTwirls(numberOfTwirls: 20)
+brutalizer.brutalizeWithHoles(numberOfHoles: 20)
 brutalizer.brutalizeWithToruses(numberOfToruses: 20)
-brutalizer.brutalizeWithVortexes(numberOfVortexes: 30)
+brutalizer.brutalizeWithVortexes(numberOfVortexes: 20)
 // brutalizer.brutalizeWithLightTunnel()
 
 guard let outputData = brutalizer.outputData else { exit(1) }
