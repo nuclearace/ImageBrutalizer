@@ -12,17 +12,18 @@ import AppKit
 
 class ImageBrutalizer {
     let context = CIContext(options: nil)
+    let extent: CGRect
     let height: Int
     let width: Int
     
     var image: CIImage
     var outputImage: CGImage {
-        return context.createCGImage(image, fromRect: image.extent)
+        return context.createCGImage(image, fromRect: extent)
     }
     
     var outputData: NSData? {
         let outputCGImage = outputImage
-        let outputSize = NSSize(width: CGImageGetWidth(outputCGImage), height: CGImageGetHeight(outputCGImage))
+        let outputSize = NSSize(width: width, height: height)
         let bitmapRep = NSBitmapImageRep(CGImage: outputCGImage)
         
         bitmapRep.size = outputSize
@@ -39,6 +40,7 @@ class ImageBrutalizer {
         guard let width = image.properties["PixelWidth"] as? Int else { return nil }
         
         self.image = image
+        self.extent = image.extent
         self.height = height
         self.width = width
     }
@@ -57,15 +59,26 @@ class ImageBrutalizer {
     
     func brutalizeWithHoles(numberOfHoles holeNum: Int) {
         for _ in 0..<holeNum {
-            let bumper = CIFilter(name: "CIHoleDistortion", withInputParameters: [
+            let holer = CIFilter(name: "CIHoleDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
                 "inputRadius": randomNSNumber(30)
                 ])
             
-            image = bumper?.outputImage ?? image
+            image = holer?.outputImage ?? image
         }
     }
+    
+    func brutalizeWithLightTunnel() {
+        let tunneler = CIFilter(name: "CILightTunnel", withInputParameters: [
+            "inputImage": image,
+            "inputCenter": randomCenter,
+            "inputRotation": randomNSNumber(40),
+            ])
+        
+        image = tunneler?.outputImage ?? image
+    }
+    
     
     func brutalizeWithTwirls(numberOfTwirls numOfTwirls: Int) {
         for _ in 0..<numOfTwirls {
