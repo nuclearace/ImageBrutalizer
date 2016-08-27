@@ -69,6 +69,16 @@ class ImageBrutalizer {
         }
     }
     
+    func brutalizeWithNoiseReduction() {
+        let reducer = CIFilter(name: "CINoiseReduction", withInputParameters: [
+            "inputImage": image,
+            "inputNoiseLevel": 0.01,
+            "inputSharpness": 20,
+            ])
+        
+        image = reducer?.outputImage ?? image
+    }
+    
     func brutalizeWithLightTunnel() {
         let tunneler = CIFilter(name: "CILightTunnel", withInputParameters: [
             "inputImage": image,
