@@ -20,6 +20,7 @@ guard let brutalizer = ImageBrutalizer(image: ciImage) else { exit(1) }
 brutalizer.brutalizeWithBumps(numberOfBumps: 50)
 brutalizer.brutalizeWithTwirls(numberOfTwirls: 50)
 brutalizer.brutalizeWithHoles(numberOfHoles: 10)
+brutalizer.brutalizeWithToruses(numberOfToruses: 20)
 // brutalizer.brutalizeWithLightTunnel()
 
 guard let outputData = brutalizer.outputData else { exit(1) }
