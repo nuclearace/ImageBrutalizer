@@ -107,6 +107,19 @@ class ImageBrutalizer {
         }
     }
     
+    func brutalizeWithVortexes(numberOfVortexes numOfVortexes: Int) {
+        for _ in 0..<numOfVortexes {
+            let vortexer = CIFilter(name: "CIVortexDistortion", withInputParameters: [
+                "inputImage": image,
+                "inputCenter": randomCenter,
+                "inputRadius": randomNSNumber(300),
+                "inputAngle": randomNSNumber(360)
+                ])
+            
+            image = vortexer?.outputImage ?? image
+        }
+    }
+    
     private func randomNSNumber(limit: Int) -> NSNumber {
         return NSNumber(unsignedInt: arc4random_uniform(UInt32(limit)))
     }
