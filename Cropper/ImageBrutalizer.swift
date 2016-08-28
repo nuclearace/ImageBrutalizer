@@ -145,7 +145,7 @@ class ImageBrutalizer {
                 "inputImage": image,
                 "inputCenter": randomCenter,
                 "inputRadius": randomNSNumber(100),
-                "inputAngle": randomNSNumber(4)
+                "inputAngle": randomNSNumber(10)
                 ])
             
             image = twirler?.outputImage ?? image
