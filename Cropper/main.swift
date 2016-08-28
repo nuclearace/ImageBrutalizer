@@ -9,23 +9,30 @@
 import Foundation
 import CoreImage
 
-guard Process.arguments.count == 2 else { exit(1) }
+let args = Process.arguments[1..<Process.arguments.endIndex].map(BrutalArg.parse)
+var imagePath = ""
+let imageData: NSData
+let ciImage: CIImage
+let brutalizer: ImageBrutalizer
 
-let imagePath = Process.arguments[1]
+for arg in args {
+    switch arg {
+    case let .url(image):
+        imagePath = image
+        break
+    default:
+        continue
+    }
+}
+
 
 guard let imageData = NSData(contentsOfFile: imagePath) else { exit(1) }
 guard let ciImage = CIImage(data: imageData) else { exit(1) }
 guard let brutalizer = ImageBrutalizer(image: ciImage) else { exit(1) }
 
-// brutalizer.brutalizeWithNoiseReduction()
-// brutalizer.brutalizeWithPixelation()
-// brutalizer.brutalizeWithBloom()
-brutalizer.brutalizeWithBumps(numberOfBumps: 20)
-brutalizer.brutalizeWithTwirls(numberOfTwirls: 20)
-brutalizer.brutalizeWithHoles(numberOfHoles: 20)
-brutalizer.brutalizeWithToruses(numberOfToruses: 20)
-brutalizer.brutalizeWithVortexes(numberOfVortexes: 20)
-// brutalizer.brutalizeWithLightTunnel()
+for arg in args {
+    arg.brutalize(brutalizer)
+}
 
 guard let outputData = brutalizer.outputData else { exit(1) }
 
