@@ -55,7 +55,7 @@ enum BrutalArg {
         }
     }
     
-    func brutalize(brutalizer: ImageBrutalizer) {
+    func brutalize(with brutalizer: ImageBrutalizer) {
         switch self {
         case .bloom:
             brutalizer.brutalizeWithBloom()

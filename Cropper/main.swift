@@ -24,7 +24,7 @@ for arg in args {
 guard let brutalizer = ImageBrutalizer(imagePath: imagePath) else { exit(1) }
 
 for arg in args {
-    arg.brutalize(brutalizer)
+    arg.brutalize(with: brutalizer)
 }
 
 guard let outputData = brutalizer.outputData else { exit(1) }
