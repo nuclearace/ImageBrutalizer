@@ -70,6 +70,20 @@ class ImageBrutalizer {
         }
     }
     
+    func brutalizeWithStretching(numberOfStretches numOfStretches: Int) {
+        for _ in 0..<numOfStretches {
+            let bumper = CIFilter(name: "CIBumpDistortionLinear", withInputParameters: [
+                "inputImage": image,
+                "inputCenter": randomCenter,
+                "inputRadius": randomNSNumber(500),
+                "inputAngle": randomNSNumber(360),
+                "inputScale": 0.1
+                ])
+            
+            image = bumper?.outputImage ?? image
+        }
+    }
+    
     func brutalizeWithHoles(numberOfHoles holeNum: Int) {
         for _ in 0..<holeNum {
             let holer = CIFilter(name: "CIHoleDistortion", withInputParameters: [

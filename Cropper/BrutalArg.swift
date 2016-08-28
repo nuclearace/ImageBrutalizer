@@ -11,6 +11,7 @@ import Foundation
 enum BrutalArg {
     case bloom
     case bumps(Int)
+    case stretches(Int)
     case holes(Int)
     case noise
     case pixellize
@@ -44,6 +45,8 @@ enum BrutalArg {
             self = .noise
         case "-pixel":
             self = .pixellize
+        case "-stretches=":
+            self = .stretches(value)
         case "-torus=":
             self = .torus(value)
         case "-twirls=":
@@ -69,6 +72,8 @@ enum BrutalArg {
             brutalizer.brutalizeWithNoiseReduction()
         case .pixellize:
             brutalizer.brutalizeWithPixelation()
+        case let .stretches(numOfStretches):
+            brutalizer.brutalizeWithStretching(numberOfStretches: numOfStretches)
         case let .torus(numOfToruses):
             brutalizer.brutalizeWithToruses(numberOfToruses: numOfToruses)
         case let .twirls(numOfTwirls):
