@@ -8,9 +8,8 @@
 
 import Foundation
 
-let args = Process.arguments[1..<Process.arguments.endIndex].map(BrutalArg.parse)
+let args = Process.arguments[1..<Process.arguments.endIndex].map(BrutalArg.init)
 var imagePath = ""
-let brutalizer: ImageBrutalizer
 
 for arg in args {
     switch arg {

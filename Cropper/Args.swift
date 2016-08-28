@@ -18,37 +18,40 @@ enum BrutalArg {
     case twirls(Int)
     case url(String)
     case vortex(Int)
-
-    static func parse(string: String) -> BrutalArg {
+    case zoomBlur
+    
+    init(stringArgument: String) {
         let option: String
         let value: Int
         
-        if string.containsString("=") {
-            let startOfValue = string.rangeOfString("=")!.startIndex
-            option = string[string.startIndex...startOfValue]
-            value = Int(string[startOfValue.advancedBy(1)..<string.endIndex])!
+        if stringArgument.containsString("=") {
+            let startOfValue = stringArgument.rangeOfString("=")!.startIndex
+            option = stringArgument[stringArgument.startIndex...startOfValue]
+            value = Int(stringArgument[startOfValue.advancedBy(1)..<stringArgument.endIndex])!
         } else {
-            option = string
+            option = stringArgument
             value = -1
         }
         
         switch option {
         case "-bloom":
-            return .bloom
+            self = .bloom
         case "-bumps=":
-            return .bumps(value)
+            self = .bumps(value)
         case "-holes=":
-            return .holes(value)
+            self = .holes(value)
         case "-pixel":
-            return .pixellize
+            self = .pixellize
         case "-torus=":
-            return .torus(value)
+            self = .torus(value)
         case "-twirls=":
-            return .twirls(value)
+            self = .twirls(value)
         case "-vortex=":
-            return .vortex(value)
+            self = .vortex(value)
+        case "-zoom":
+            self = .zoomBlur
         default:
-            return .url(string)
+            self = .url(stringArgument)
         }
     }
     
@@ -70,6 +73,8 @@ enum BrutalArg {
             brutalizer.brutalizeWithTwirls(numberOfTwirls: numOfTwirls)
         case let .vortex(numOfVortexes):
             brutalizer.brutalizeWithVortexes(numberOfVortexes: numOfVortexes)
+        case .zoomBlur:
+            brutalizer.brutalizeWithZoomBlur()
         default:
             break
         }

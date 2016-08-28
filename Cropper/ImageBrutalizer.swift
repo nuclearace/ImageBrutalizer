@@ -56,7 +56,6 @@ class ImageBrutalizer {
             ])
         
         image = bloomer?.outputImage ?? image
-        
     }
     
     func brutalizeWithBumps(numberOfBumps bumpNum: Int) {
@@ -152,6 +151,17 @@ class ImageBrutalizer {
             
             image = vortexer?.outputImage ?? image
         }
+    }
+    
+    func brutalizeWithZoomBlur() {
+        let zoomer = CIFilter(name: "CIZoomBlur", withInputParameters: [
+            "inputImage": image,
+            "inputCenter": randomCenter,
+            "inputAmount": randomNSNumber(50)
+            ])
+        
+        image = zoomer?.outputImage ?? image
+        
     }
     
     private func randomNSNumber(limit: Int) -> NSNumber {
