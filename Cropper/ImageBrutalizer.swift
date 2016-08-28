@@ -6,8 +6,6 @@
 //  Copyright © 2016 Erik Little. All rights reserved.
 //
 
-import Foundation
-import CoreImage
 import AppKit
 
 class ImageBrutalizer {
@@ -171,7 +169,7 @@ class ImageBrutalizer {
         let zoomer = CIFilter(name: "CIZoomBlur", withInputParameters: [
             "inputImage": image,
             "inputCenter": randomCenter,
-            "inputAmount": randomNSNumber(50)
+            "inputAmount": randomNSNumber(5)
             ])
         
         image = zoomer?.outputImage ?? image

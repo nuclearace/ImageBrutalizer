@@ -25,7 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		741960CD1D7224D000DCD7F9 /* Cropper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cropper; sourceTree = BUILT_PRODUCTS_DIR; };
+		741960CD1D7224D000DCD7F9 /* brutalizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = brutalizer; sourceTree = BUILT_PRODUCTS_DIR; };
 		741960D01D7224D000DCD7F9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrutalizer.swift; sourceTree = "<group>"; };
 		749263C11D727AAC00D567F7 /* BrutalArg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrutalArg.swift; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		741960CE1D7224D000DCD7F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				741960CD1D7224D000DCD7F9 /* Cropper */,
+				741960CD1D7224D000DCD7F9 /* brutalizer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,7 +85,7 @@
 			);
 			name = Cropper;
 			productName = Cropper;
-			productReference = 741960CD1D7224D000DCD7F9 /* Cropper */;
+			productReference = 741960CD1D7224D000DCD7F9 /* brutalizer */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -219,14 +219,14 @@
 		741960D51D7224D000DCD7F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = brutalizer;
 			};
 			name = Debug;
 		};
 		741960D61D7224D000DCD7F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = brutalizer;
 			};
 			name = Release;
 		};
