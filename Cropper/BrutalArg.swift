@@ -11,10 +11,11 @@ import Foundation
 enum BrutalArg {
     case bloom
     case bumps(Int)
-    case stretches(Int)
     case holes(Int)
+    case light
     case noise
     case pixellize
+    case stretches(Int)
     case torus(Int)
     case twirls(Int)
     case url(String)
@@ -41,6 +42,8 @@ enum BrutalArg {
             self = .bumps(value)
         case "-holes=":
             self = .holes(value)
+        case "-light":
+            self = .light
         case "-noise":
             self = .noise
         case "-pixel":
@@ -66,6 +69,8 @@ enum BrutalArg {
             brutalizer.brutalizeWithBloom()
         case let .bumps(numOfBumps):
             brutalizer.brutalizeWithBumps(numberOfBumps: numOfBumps)
+        case .light:
+            brutalizer.brutalizeWithLightTunnel()
         case let .holes(numOfHoles):
             brutalizer.brutalizeWithHoles(numberOfHoles: numOfHoles)
         case .noise:
