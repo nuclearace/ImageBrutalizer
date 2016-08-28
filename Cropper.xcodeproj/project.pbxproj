@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		741960D11D7224D000DCD7F9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741960D01D7224D000DCD7F9 /* main.swift */; };
 		741960DA1D722A9500DCD7F9 /* ImageBrutalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */; };
-		749263C21D727AAC00D567F7 /* Args.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749263C11D727AAC00D567F7 /* Args.swift */; };
+		749263C21D727AAC00D567F7 /* BrutalArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749263C11D727AAC00D567F7 /* BrutalArg.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,7 @@
 		741960CD1D7224D000DCD7F9 /* Cropper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Cropper; sourceTree = BUILT_PRODUCTS_DIR; };
 		741960D01D7224D000DCD7F9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrutalizer.swift; sourceTree = "<group>"; };
-		749263C11D727AAC00D567F7 /* Args.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Args.swift; sourceTree = "<group>"; };
+		749263C11D727AAC00D567F7 /* BrutalArg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrutalArg.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				741960D01D7224D000DCD7F9 /* main.swift */,
-				749263C11D727AAC00D567F7 /* Args.swift */,
+				749263C11D727AAC00D567F7 /* BrutalArg.swift */,
 				741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */,
 			);
 			path = Cropper;
@@ -126,7 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				741960D11D7224D000DCD7F9 /* main.swift in Sources */,
-				749263C21D727AAC00D567F7 /* Args.swift in Sources */,
+				749263C21D727AAC00D567F7 /* BrutalArg.swift in Sources */,
 				741960DA1D722A9500DCD7F9 /* ImageBrutalizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
