@@ -36,11 +36,13 @@ class ImageBrutalizer {
         return CIVector(x: CGFloat(arc4random_uniform(UInt32(width))), y: CGFloat(arc4random_uniform(UInt32(height))))
     }
     
-    init?(image: CIImage) {
-        guard let height = image.properties["PixelHeight"] as? Int else { return nil }
-        guard let width = image.properties["PixelWidth"] as? Int else { return nil }
+    init?(imagePath: String) {
+        guard let imageData = NSData(contentsOfFile: imagePath) else { return nil }
+        guard let ciImage = CIImage(data: imageData) else { return nil }
+        guard let height = ciImage.properties["PixelHeight"] as? Int else { return nil }
+        guard let width = ciImage.properties["PixelWidth"] as? Int else { return nil }
         
-        self.image = image
+        self.image = ciImage
         self.extent = image.extent
         self.height = height
         self.width = width
