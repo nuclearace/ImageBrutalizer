@@ -40,6 +40,8 @@ enum BrutalArg {
             self = .bumps(value)
         case "-holes=":
             self = .holes(value)
+        case "-noise":
+            self = .noise
         case "-pixel":
             self = .pixellize
         case "-torus=":
