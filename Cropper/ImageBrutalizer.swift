@@ -61,7 +61,8 @@ class ImageBrutalizer {
             let bumper = CIFilter(name: "CIBumpDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(500)
+                "inputRadius": randomNSNumber(width > 2000 ? 700 : 500),
+                "inputScale": width > 2000 ? 0.9 : 0.5
                 ])
             
             image = bumper?.outputImage ?? image
@@ -70,7 +71,7 @@ class ImageBrutalizer {
     
     func brutalizeWithStretching(numberOfStretches numOfStretches: Int) {
         for _ in 0..<numOfStretches {
-            let bumper = CIFilter(name: "CIBumpDistortionLinear", withInputParameters: [
+            let stretcher = CIFilter(name: "CIBumpDistortionLinear", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
                 "inputRadius": randomNSNumber(500),
@@ -78,7 +79,7 @@ class ImageBrutalizer {
                 "inputScale": 0.1
                 ])
             
-            image = bumper?.outputImage ?? image
+            image = stretcher?.outputImage ?? image
         }
     }
     
@@ -87,7 +88,7 @@ class ImageBrutalizer {
             let holer = CIFilter(name: "CIHoleDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(30)
+                "inputRadius": randomNSNumber(width > 2000 ? 80 : 30)
                 ])
             
             image = holer?.outputImage ?? image
@@ -129,8 +130,8 @@ class ImageBrutalizer {
             let toruser = CIFilter(name: "CITorusLensDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(100),
-                "inputWidth": randomNSNumber(50),
+                "inputRadius": randomNSNumber(width > 2000 ? 300 : 100),
+                "inputWidth": randomNSNumber(width > 2000 ? 150 : 50),
                 "inputRefraction": randomNSNumber(10)
                 ])
             
@@ -144,8 +145,8 @@ class ImageBrutalizer {
             let twirler = CIFilter(name: "CITwirlDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(100),
-                "inputAngle": randomNSNumber(10)
+                "inputRadius": randomNSNumber(width > 2000 ? 400 : 100),
+                "inputAngle": randomNSNumber(6)
                 ])
             
             image = twirler?.outputImage ?? image
@@ -157,7 +158,7 @@ class ImageBrutalizer {
             let vortexer = CIFilter(name: "CIVortexDistortion", withInputParameters: [
                 "inputImage": image,
                 "inputCenter": randomCenter,
-                "inputRadius": randomNSNumber(200),
+                "inputRadius": randomNSNumber(width > 2000 ? 1000 : 200),
                 "inputAngle": randomNSNumber(360)
                 ])
             
