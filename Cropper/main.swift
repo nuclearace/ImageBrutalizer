@@ -11,11 +11,11 @@ import Foundation
 let args = Process.arguments[1..<Process.arguments.endIndex].map(BrutalArg.init)
 var imagePath = ""
 
-for arg in args {
+loop: for arg in args {
     switch arg {
     case let .url(image):
         imagePath = image
-        break
+        break loop
     default:
         continue
     }
