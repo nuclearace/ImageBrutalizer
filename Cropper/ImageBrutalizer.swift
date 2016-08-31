@@ -9,33 +9,33 @@
 import AppKit
 
 class ImageBrutalizer {
-    private let context = CIContext(options: nil)
-    private let extent: CGRect
-    private let height: Int
-    private let width: Int
+    fileprivate let context = CIContext(options: nil)
+    fileprivate let extent: CGRect
+    fileprivate let height: Int
+    fileprivate let width: Int
     
-    private var image: CIImage
+    fileprivate var image: CIImage
     
     var outputImage: CGImage {
-        return context.createCGImage(image, fromRect: extent)
+        return context.createCGImage(image, from: extent)!
     }
     
-    var outputData: NSData? {
+    var outputData: Data? {
         let outputCGImage = outputImage
         let outputSize = NSSize(width: width, height: height)
-        let bitmapRep = NSBitmapImageRep(CGImage: outputCGImage)
+        let bitmapRep = NSBitmapImageRep(cgImage: outputCGImage)
         
         bitmapRep.size = outputSize
         
-        return bitmapRep.representationUsingType(.NSPNGFileType, properties: [:])
+        return bitmapRep.representation(using: .PNG, properties: [:])
     }
     
-    private var randomCenter: CIVector {
+    fileprivate var randomCenter: CIVector {
         return CIVector(x: CGFloat(arc4random_uniform(UInt32(width))), y: CGFloat(arc4random_uniform(UInt32(height))))
     }
     
     init?(imagePath: String) {
-        guard let imageData = NSData(contentsOfFile: imagePath) else { return nil }
+        guard let imageData = try? Data(contentsOf: URL(fileURLWithPath: imagePath)) else { return nil }
         guard let ciImage = CIImage(data: imageData) else { return nil }
         guard let height = ciImage.properties["PixelHeight"] as? Int else { return nil }
         guard let width = ciImage.properties["PixelWidth"] as? Int else { return nil }
@@ -177,7 +177,7 @@ class ImageBrutalizer {
         
     }
     
-    private func randomNSNumber(limit: Int) -> NSNumber {
-        return NSNumber(unsignedInt: arc4random_uniform(UInt32(limit)))
+    fileprivate func randomNSNumber(_ limit: Int) -> NSNumber {
+        return NSNumber(value: arc4random_uniform(UInt32(limit)))
     }
 }

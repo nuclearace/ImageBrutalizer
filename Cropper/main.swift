@@ -8,7 +8,7 @@
 
 import Foundation
 
-let args = Process.arguments[1..<Process.arguments.endIndex].map(BrutalArg.init)
+let args = CommandLine.arguments[CommandLine.arguments.indices.suffix(from: 1)].map(BrutalArg.init)
 var imagePath = ""
 
 loop: for arg in args {
@@ -29,7 +29,7 @@ for arg in args {
 
 guard let outputData = brutalizer.outputData else { exit(1) }
 
-let fileManager = NSFileManager.defaultManager()
-let a = ("~/Desktop/brutalized.png" as NSString).stringByExpandingTildeInPath
+let fileManager = FileManager.default
+let a = ("~/Desktop/brutalized.png" as NSString).expandingTildeInPath
 
-fileManager.createFileAtPath(a, contents: outputData, attributes: nil)
+fileManager.createFile(atPath: a, contents: outputData as Data, attributes: nil)
