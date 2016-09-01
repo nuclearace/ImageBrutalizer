@@ -32,4 +32,4 @@ guard let outputData = brutalizer.outputData else { exit(1) }
 let fileManager = FileManager.default
 let a = ("~/Desktop/brutalized.png" as NSString).expandingTildeInPath
 
-fileManager.createFile(atPath: a, contents: outputData as Data, attributes: nil)
+fileManager.createFile(atPath: a, contents: outputData, attributes: nil)
