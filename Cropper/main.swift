@@ -8,7 +8,7 @@
 
 import Foundation
 
-let args = CommandLine.arguments[CommandLine.arguments.indices.suffix(from: 1)].map(BrutalArg.init)
+let args = CommandLine.arguments.dropFirst().map(BrutalArg.init)
 var imagePath = ""
 
 loop: for arg in args {
