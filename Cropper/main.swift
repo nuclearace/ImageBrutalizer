@@ -8,7 +8,7 @@
 
 import Foundation
 
-let args = Process.arguments[1..<Process.arguments.endIndex].map(BrutalArg.init)
+let args = Process.arguments.dropFirst().map(BrutalArg.init)
 var imagePath = ""
 
 loop: for arg in args {
