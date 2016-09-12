@@ -26,9 +26,9 @@ enum BrutalArg {
         let option: String
         let value: Int
         
-        if let startOfValue = stringArgument.rangeOfString("=")?.startIndex {
+        if let startOfValue = stringArgument.range(of: "=")?.lowerBound {
             option = stringArgument[stringArgument.startIndex...startOfValue]
-            value = Int(stringArgument[startOfValue.advancedBy(1)..<stringArgument.endIndex])!
+            value = Int(stringArgument[stringArgument.index(startOfValue, offsetBy: 1)..<stringArgument.endIndex])!
         } else {
             option = stringArgument
             value = -1

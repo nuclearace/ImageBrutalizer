@@ -100,6 +100,7 @@
 				TargetAttributes = {
 					741960CC1D7224D000DCD7F9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -221,6 +222,7 @@
 			buildSettings = {
 				PRODUCT_NAME = brutalizer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -229,6 +231,7 @@
 			buildSettings = {
 				PRODUCT_NAME = brutalizer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
