@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		741960D11D7224D000DCD7F9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741960D01D7224D000DCD7F9 /* main.swift */; };
-		741960DA1D722A9500DCD7F9 /* ImageBrutalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */; };
-		749263C21D727AAC00D567F7 /* BrutalArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749263C11D727AAC00D567F7 /* BrutalArg.swift */; };
+		74C73B8E1DE8AD8300707CA7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C73B8D1DE8AD8300707CA7 /* main.swift */; };
+		74C73B911DE8AD9100707CA7 /* BrutalArg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C73B8F1DE8AD9100707CA7 /* BrutalArg.swift */; };
+		74C73B921DE8AD9100707CA7 /* ImageBrutalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C73B901DE8AD9100707CA7 /* ImageBrutalizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,9 +26,9 @@
 
 /* Begin PBXFileReference section */
 		741960CD1D7224D000DCD7F9 /* brutalizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = brutalizer; sourceTree = BUILT_PRODUCTS_DIR; };
-		741960D01D7224D000DCD7F9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrutalizer.swift; sourceTree = "<group>"; };
-		749263C11D727AAC00D567F7 /* BrutalArg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrutalArg.swift; sourceTree = "<group>"; };
+		74C73B8D1DE8AD8300707CA7 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Sources/Runner/main.swift; sourceTree = SOURCE_ROOT; };
+		74C73B8F1DE8AD9100707CA7 /* BrutalArg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrutalArg.swift; path = Sources/ImageBrutalizer/BrutalArg.swift; sourceTree = SOURCE_ROOT; };
+		74C73B901DE8AD9100707CA7 /* ImageBrutalizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageBrutalizer.swift; path = Sources/ImageBrutalizer/ImageBrutalizer.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +61,9 @@
 		741960CF1D7224D000DCD7F9 /* Cropper */ = {
 			isa = PBXGroup;
 			children = (
-				741960D01D7224D000DCD7F9 /* main.swift */,
-				749263C11D727AAC00D567F7 /* BrutalArg.swift */,
-				741960D91D722A9500DCD7F9 /* ImageBrutalizer.swift */,
+				74C73B8D1DE8AD8300707CA7 /* main.swift */,
+				74C73B8F1DE8AD9100707CA7 /* BrutalArg.swift */,
+				74C73B901DE8AD9100707CA7 /* ImageBrutalizer.swift */,
 			);
 			path = Cropper;
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 				TargetAttributes = {
 					741960CC1D7224D000DCD7F9 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -126,9 +126,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				741960D11D7224D000DCD7F9 /* main.swift in Sources */,
-				749263C21D727AAC00D567F7 /* BrutalArg.swift in Sources */,
-				741960DA1D722A9500DCD7F9 /* ImageBrutalizer.swift in Sources */,
+				74C73B921DE8AD9100707CA7 /* ImageBrutalizer.swift in Sources */,
+				74C73B911DE8AD9100707CA7 /* BrutalArg.swift in Sources */,
+				74C73B8E1DE8AD8300707CA7 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +220,8 @@
 		741960D51D7224D000DCD7F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = brutalizer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -229,6 +231,8 @@
 		741960D61D7224D000DCD7F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = brutalizer;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;

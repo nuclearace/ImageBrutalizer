@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ImageBrutalizer
 
 let args = CommandLine.arguments.dropFirst().map(BrutalArg.init)
 var imagePath = ""

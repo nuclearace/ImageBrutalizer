@@ -6,9 +6,11 @@
 //  Copyright © 2016 Erik Little. All rights reserved.
 //
 
+#if os(macOS)
+
 import Foundation
 
-enum BrutalArg {
+public enum BrutalArg {
     case bloom
     case bumps(Int)
     case holes(Int)
@@ -21,11 +23,11 @@ enum BrutalArg {
     case url(String)
     case vortex(Int)
     case zoomBlur
-    
-    init(stringArgument: String) {
+
+    public init(stringArgument: String) {
         let option: String
         let value: Int
-        
+
         if let startOfValue = stringArgument.range(of: "=")?.lowerBound {
             option = stringArgument[stringArgument.startIndex...startOfValue]
             value = Int(stringArgument[stringArgument.index(startOfValue, offsetBy: 1)..<stringArgument.endIndex])!
@@ -33,7 +35,7 @@ enum BrutalArg {
             option = stringArgument
             value = -1
         }
-        
+
         switch option {
         case "-bloom":
             self = .bloom
@@ -61,8 +63,8 @@ enum BrutalArg {
             self = .url(stringArgument)
         }
     }
-    
-    func brutalize(with brutalizer: ImageBrutalizer) {
+
+    public func brutalize(with brutalizer: ImageBrutalizer) {
         switch self {
         case .bloom:
             brutalizer.brutalizeWithBloom()
@@ -91,3 +93,5 @@ enum BrutalArg {
         }
     }
 }
+
+#endif
