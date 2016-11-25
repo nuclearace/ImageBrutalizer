@@ -37,7 +37,6 @@ public class ImageBrutalizer {
     }
 
     public init?(data: Data) {
-        print(data)
         guard let ciImage = CIImage(data: data) else { return nil }
         guard let height = ciImage.properties["PixelHeight"] as? Int else { return nil }
         guard let width = ciImage.properties["PixelWidth"] as? Int else { return nil }
