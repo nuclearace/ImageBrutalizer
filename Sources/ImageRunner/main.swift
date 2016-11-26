@@ -6,6 +6,8 @@
 //  Copyright © 2016 Erik Little. All rights reserved.
 //
 
+#if os(macOS)
+
 import Foundation
 import ImageBrutalizer
 
@@ -34,3 +36,5 @@ let fileManager = FileManager.default
 let a = ("~/Desktop/brutalized.png" as NSString).expandingTildeInPath
 
 fileManager.createFile(atPath: a, contents: outputData, attributes: nil)
+
+#endif
